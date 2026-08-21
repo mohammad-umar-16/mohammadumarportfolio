@@ -276,12 +276,13 @@ export function Contact() {
         {/* Contact methods */}
         <div className="flex flex-col items-center justify-center gap-3 max-w-md mx-auto">
   
-   <a href={`mailto:${PROFILE.email}`}
-    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-6 py-3 rounded-md hover:bg-signal/90 transition-colors min-w-0"
-  >
-    <Mail size={16} className="shrink-0" />
-    <span className="sm:whitespace-nowrap break-all sm:break-normal min-w-0">{PROFILE.email}</span>
-  </a>
+   
+ <a  href={`mailto:${PROFILE.email}`}
+  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-4 sm:px-6 py-3 rounded-md hover:bg-signal/90 transition-colors min-w-0"
+>
+  <Mail size={16} className="shrink-0" />
+  <span className="whitespace-nowrap text-xs sm:text-base min-w-0">{PROFILE.email}</span>
+</a>
 
   
    <a href={`tel:${PROFILE.phone.replace(/\s/g, '')}`}
