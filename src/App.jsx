@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import FeaturedWork from './sections/FeaturedWork';
@@ -9,6 +10,7 @@ import CommandDivider from './components/CommandDivider';
 export default function App() {
   return (
     <main className="relative">
+      <Navbar />
       <Hero />
       <About />
       <CommandDivider />

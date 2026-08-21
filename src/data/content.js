@@ -11,7 +11,7 @@ export const PROFILE = {
 
 export const ABOUT = {
   paragraphs: [
-    "I'm a full-stack developer based in Greater Noida, India. I graduated in 2025 with a B.Tech in Computer Science (Data Science) from IPEC, and most recently worked as a Software Engineer at PEER Networks, where I built and shipped software solutions end to end.",
+    "I'm a full-stack developer based in Delhi, India. I graduated in 2025 with a B.Tech in Computer Science (Data Science) from IPEC, and most recently worked as a Software Engineer at PEER Networks, where I built and shipped software solutions end to end.",
     "I care about building things that actually ship, not just prototypes — that means paying as much attention to auth security, database reliability, and graceful fallbacks as to the feature itself. I'm currently looking for my next role in Software Engineering, ML/Data Science, or Frontend development.",
   ],
   focusAreas: ["Full-Stack Web Development", "Applied Machine Learning", "Real-Time Systems", "Health Tech"],
