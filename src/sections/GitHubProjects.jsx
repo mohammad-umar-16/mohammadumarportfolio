@@ -171,11 +171,11 @@ export default function GitHubProjects() {
 
       {allRepos && allRepos.length > 0 && (
         <>
-          <div className="grid md:grid-cols-2 gap-5 min-h-[300px]">
+        <div className="grid md:grid-cols-2 gap-5 min-h-[300px] min-w-0"></div>  
             {pageRepos.map((repo, i) => {
-              const details = detailsCache[repo.name];
-              const isLoading = !details;
-              return (
+                const details = detailsCache[repo.name];
+                const isLoading = !details;
+                return (
                 <Reveal key={repo.id} delay={i * 0.06}>
                   {isLoading ? (
                     <div className="border border-line rounded-lg p-7 md:p-8 h-full bg-panel/30 animate-pulse min-h-[240px]" />
@@ -186,10 +186,10 @@ export default function GitHubProjects() {
                       rel="noreferrer"
                       whileHover={{ y: -4 }}
                       transition={{ duration: 0.25 }}
-                      className="group flex flex-col h-full border border-line rounded-lg p-7 md:p-8 bg-panel/40 hover:border-signal/40 hover:bg-panel/70 transition-colors"
+                      className="group flex flex-col h-full min-w-0 border border-line rounded-lg p-7 md:p-8 bg-panel/40 hover:border-signal/40 hover:bg-panel/70 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4 mb-1">
-                        <h3 className="font-display text-2xl font-semibold text-ink break-words">{repo.name}</h3>
+                        <h3 className="font-display text-2xl font-semibold text-ink break-words min-w-0">{repo.name}</h3>
                         <ExternalLink size={17} className="text-dim shrink-0 pt-1" />
                       </div>
                       <p className="flex items-center gap-1.5 font-mono text-dim text-[11px] mb-4">

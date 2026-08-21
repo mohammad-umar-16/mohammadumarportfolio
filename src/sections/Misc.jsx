@@ -149,7 +149,7 @@ export function Contact() {
         </div>
       </Reveal>
       <p className="font-mono text-dim text-[11px] mt-20">
-        Built with React, Three.js & Framer Motion — no template.
+        end
       </p>
     </section>
   );
