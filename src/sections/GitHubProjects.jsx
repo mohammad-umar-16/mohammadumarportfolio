@@ -13,6 +13,7 @@ import Reveal from '../components/Reveal';
 
 const GITHUB_USERNAME = 'mohammad-umar-16';
 const PER_PAGE = 4;
+const EXCLUDED_REPOS = ["mohammad-umar-16", "mohammad-umar-16.github.io "]; 
 
 function extractDescription(markdown) {
   if (!markdown) return null;
@@ -169,10 +170,9 @@ export default function GitHubProjects() {
         return res.json();
       })
       .then((data) => {
+       
         const filtered = data
-          .filter(
-            (r) => !r.fork && !r.archived
-          )
+          .filter(r => !r.fork && !r.archived && !EXCLUDED_REPOS.includes(r.name))
           .sort(
             (a, b) =>
               b.stargazers_count -
