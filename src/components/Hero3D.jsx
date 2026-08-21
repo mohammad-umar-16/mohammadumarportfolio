@@ -1,4 +1,5 @@
-import { useRef ,  useMemo } from 'react';
+
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sparkles } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
@@ -308,6 +309,19 @@ function Scene({ mouse }) {
 
 export default function Hero3D() {
   const mouse = useRef({ x: 0, y: 0 });
+  const containerRef = useRef();
+  const [inView, setInView] = useState(true);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handlePointerMove = (e) => {
     const x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -316,8 +330,13 @@ export default function Hero3D() {
   };
 
   return (
-    <div className="absolute inset-0" onPointerMove={handlePointerMove}>
-      <Canvas camera={{ position: [2.4, 0, 9], fov: 42 }} dpr={[1, 1.5]} gl={{ antialias: true }}>
+    <div ref={containerRef} className="absolute inset-0" onPointerMove={handlePointerMove}>
+      <Canvas
+        camera={{ position: [2.4, 0, 9], fov: 42 }}
+        dpr={1}
+        gl={{ antialias: true }}
+        frameloop={inView ? 'always' : 'never'}
+      >
         <Scene mouse={mouse} />
       </Canvas>
     </div>
