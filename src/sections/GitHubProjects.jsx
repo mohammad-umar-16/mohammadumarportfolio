@@ -171,7 +171,7 @@ export default function GitHubProjects() {
 
       {allRepos && allRepos.length > 0 && (
         <>
-        <div className="grid md:grid-cols-2 gap-5 min-h-[300px] min-w-0"></div>  
+        <div className="grid md:grid-cols-2 gap-5 min-h-[300px] min-w-0">
             {pageRepos.map((repo, i) => {
                 const details = detailsCache[repo.name];
                 const isLoading = !details;
