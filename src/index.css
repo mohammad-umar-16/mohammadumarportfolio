@@ -4,6 +4,7 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; max-width: 100vw; }
   body {
     @apply bg-void text-ink font-body antialiased;
     background-image:
@@ -20,20 +21,4 @@
 @layer utilities {
   .glow-text { text-shadow: 0 0 24px rgba(78,205,164,0.35); }
   .section-pad { @apply px-6 md:px-12 lg:px-20 py-24 md:py-32; }
-}
-
-@layer base {
-  html { scroll-behavior: smooth; }
-  html, body { overflow-x: hidden; max-width: 100vw; }
-  body {
-    @apply bg-void text-ink font-body antialiased;
-    background-image:
-      linear-gradient(rgba(78,205,164,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(78,205,164,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-  ::selection { background: #4ECDA4; color: #0B0F0E; }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  }
 }
