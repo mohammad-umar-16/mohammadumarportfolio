@@ -309,18 +309,20 @@ function Scene({ mouse }) {
 
 export default function Hero3D() {
   const mouse = useRef({ x: 0, y: 0 });
-  const containerRef = useRef();
-  const [inView, setInView] = useState(true);
+  const [camera, setCamera] = useState({ position: [2.4, 0, 9], fov: 42 });
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const updateCamera = () => {
+      const w = window.innerWidth;
+      if (w < 768) {
+        setCamera({ position: [0.6, -1.2, 13], fov: 46 });
+      } else {
+        setCamera({ position: [2.4, 0, 9], fov: 42 });
+      }
+    };
+    updateCamera();
+    window.addEventListener('resize', updateCamera);
+    return () => window.removeEventListener('resize', updateCamera);
   }, []);
 
   const handlePointerMove = (e) => {
@@ -330,13 +332,8 @@ export default function Hero3D() {
   };
 
   return (
-    <div ref={containerRef} className="absolute inset-0" onPointerMove={handlePointerMove}>
-      <Canvas
-        camera={{ position: [2.4, 0, 9], fov: 42 }}
-        dpr={1}
-        gl={{ antialias: true }}
-        frameloop={inView ? 'always' : 'never'}
-      >
+    <div className="absolute inset-0" onPointerMove={handlePointerMove}>
+      <Canvas camera={camera} dpr={1} gl={{ antialias: true }}>
         <Scene mouse={mouse} />
       </Canvas>
     </div>
