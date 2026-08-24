@@ -16,18 +16,10 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-96">
       <Hero3DErrorBoundary><Hero3D /></Hero3DErrorBoundary>
       <div className="absolute inset-0 bg-gradient-to-b from-void/20 via-void/50 to-void pointer-events-none" />
 
-      <nav className="relative z-10 flex justify-between items-center section-pad !py-6">
-        <span className="font-mono text-xs text-dim tracking-widest">MU // PORTFOLIO</span>
-        <div className="flex gap-4">
-  <a href={PROFILE.github} target="_blank" rel="noreferrer" className="w-9 h-9 flex items-center justify-center rounded-full border border-line bg-panel/50 text-ink hover:text-signal hover:border-signal/40 transition-colors"><Github size={22} /></a>
-  <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="w-9 h-9 flex items-center justify-center rounded-full border border-line bg-panel/50 text-ink hover:text-signal hover:border-signal/40 transition-colors"><Linkedin size={22} /></a>
-  <a href={`mailto:${PROFILE.email}`} className="w-9 h-9 flex items-center justify-center rounded-full border border-line bg-panel/50 text-ink hover:text-signal hover:border-signal/40 transition-colors"><Mail size={22} /></a>
-</div>
-      </nav>
 
       <motion.div
         variants={container}
