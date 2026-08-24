@@ -4,9 +4,11 @@ export const PROFILE = {
   tagline: "Full-stack developer building production web apps, real-time systems, and ML-driven tools.",
   location: "Delhi, India",
   email: "mohammadumar16.mu@gmail.com",
+  phone: "+91 8899721612",
   github: "https://github.com/mohammad-umar-16",
   linkedin: "https://linkedin.com/in/mohammad-umar01",
 };
+
 
 
 export const ABOUT = {

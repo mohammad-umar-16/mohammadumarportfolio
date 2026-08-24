@@ -1,7 +1,9 @@
 import Reveal from '../components/Reveal';
+
 import {
   Award,
   Mail,
+  Phone,
   Github,
   Linkedin,
   GraduationCap,
@@ -255,7 +257,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="section-pad !pb-16 text-center w-full max-w-full min-w-0 overflow-hidden"
+      className="section-pad !pb-16 text-center w-full max-w-full min-w-0"
     >
       <Reveal className="w-full max-w-full min-w-0">
         <p className="font-mono text-signal text-xs tracking-[0.2em] mb-3">
@@ -271,25 +273,29 @@ export function Contact() {
           I'd like to hear from you.
         </p>
 
-        {/* Email button */}
-        <a
-          href={`mailto:${PROFILE.email}`}
-          className="inline-flex w-full max-w-full sm:w-auto sm:max-w-md items-center justify-center gap-2 bg-signal text-void font-medium px-4 sm:px-6 py-3 rounded-md hover:bg-signal/90 transition-colors"
-        >
-          <Mail
-            size={16}
-            className="shrink-0"
-          />
+        {/* Contact methods */}
+        <div className="flex flex-col items-center justify-center gap-3 max-w-md mx-auto">
+  
+   <a href={`mailto:${PROFILE.email}`}
+    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-6 py-3 rounded-md hover:bg-signal/90 transition-colors min-w-0"
+  >
+    <Mail size={16} className="shrink-0" />
+    <span className="sm:whitespace-nowrap break-all sm:break-normal min-w-0">{PROFILE.email}</span>
+  </a>
 
-          <span className="break-all min-w-0">
-            {PROFILE.email}
-          </span>
-        </a>
+  
+   <a href={`tel:${PROFILE.phone.replace(/\s/g, '')}`}
+    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-6 py-3 rounded-md hover:bg-signal/90 transition-colors whitespace-nowrap"
+  >
+    <Phone size={16} className="shrink-0" />
+    <span>{PROFILE.phone}</span>
+  </a>
+</div>
 
         {/* Social links */}
         <div className="flex flex-wrap justify-center gap-6 mt-10 text-dim">
-          <a
-            href={PROFILE.github}
+          
+           <a href={PROFILE.github}
             target="_blank"
             rel="noreferrer"
             className="hover:text-signal transition-colors flex items-center gap-1.5 text-sm"
@@ -298,8 +304,8 @@ export function Contact() {
             GitHub
           </a>
 
-          <a
-            href={PROFILE.linkedin}
+          
+           <a href={PROFILE.linkedin}
             target="_blank"
             rel="noreferrer"
             className="hover:text-signal transition-colors flex items-center gap-1.5 text-sm"
@@ -311,7 +317,7 @@ export function Contact() {
       </Reveal>
 
       <p className="font-mono text-dim text-[11px] mt-20">
-        end
+        Built with React, Three.js &amp; Framer Motion — no template.
       </p>
     </section>
   );
