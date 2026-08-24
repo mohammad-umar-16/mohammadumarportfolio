@@ -285,12 +285,13 @@ export function Contact() {
 </a>
 
   
-   <a href={`tel:${PROFILE.phone.replace(/\s/g, '')}`}
-    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-6 py-3 rounded-md hover:bg-signal/90 transition-colors whitespace-nowrap"
-  >
-    <Phone size={16} className="shrink-0" />
-    <span>{PROFILE.phone}</span>
-  </a>
+   
+ <a   href={`tel:${PROFILE.phone.replace(/\s/g, '')}`}
+  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-signal text-void font-medium px-4 sm:px-6 py-3 rounded-md hover:bg-signal/90 transition-colors whitespace-nowrap"
+>
+  <Phone size={16} className="shrink-0" />
+  <span className="text-xs sm:text-base">{PROFILE.phone}</span>
+</a>
 </div>
 
         {/* Social links */}
