@@ -7,6 +7,7 @@ const LINKS = [
   { label: 'Work', href: '#work' },
   { label: 'GitHub', href: '#github' },
   { label: 'Publications', href: '#publications' },
+  { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
