@@ -13,7 +13,7 @@ import Reveal from '../components/Reveal';
 
 const GITHUB_USERNAME = 'mohammad-umar-16';
 const PER_PAGE = 4;
-const EXCLUDED_REPOS = ["mohammad-umar-16", "mohammad-umar-16.github.io "]; 
+const EXCLUDED_REPOS = ["mohammad-umar-16", "mohammad-umar-16.github.io"]; 
 
 function extractDescription(markdown) {
   if (!markdown) return null;
