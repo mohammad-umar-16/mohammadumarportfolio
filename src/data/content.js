@@ -25,12 +25,15 @@ export const EXPERIENCE = [
     org: "PEER Networks Private Limited",
     period: "1 Jul 2025 — 31 Jul 2026",
     points: [
-      "Designed, developed, tested, and deployed software applications and solutions end to end.",
-      "Translated functional and business requirements into effective technical implementations.",
-      "Worked across development, application testing, debugging, and performance improvement.",
+      "Developed and maintained client-facing and internal web applications using React.js, Next.js, Node.js, and Express.js, translating business requirements into functional features.",
+      "Built reusable React components and REST APIs, integrating frontend applications with backend services and implementing validation, authentication, and error handling.",
+      "Worked with PostgreSQL and MongoDB for database design, CRUD operations, and integration with backend application workflows.",
+      "Contributed to testing, debugging, deployment, and performance improvements, resolving application issues and supporting ongoing maintenance of delivered solutions.",
     ],
   },
 ];
+
+
 export const EDUCATION = [
   {
     institution: "Indraprastha Engineering College (IPEC)",
