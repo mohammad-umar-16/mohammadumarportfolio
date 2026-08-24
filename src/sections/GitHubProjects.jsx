@@ -70,23 +70,7 @@ function colorForLang(lang) {
   return `hsl(${Math.abs(hash) % 360}, 55%, 55%)`;
 }
 
-function timeAgo(dateStr) {
-  const diffMs =
-    Date.now() - new Date(dateStr).getTime();
 
-  const days = Math.floor(
-    diffMs / 86400000
-  );
-
-  if (days < 1) return 'today';
-  if (days < 30) return `${days}d ago`;
-
-  const months = Math.floor(days / 30);
-
-  if (months < 12) return `${months}mo ago`;
-
-  return `${Math.floor(months / 12)}y ago`;
-}
 
 function LanguageBar({ languages }) {
   const entries = Object.entries(languages || {});
@@ -384,11 +368,7 @@ export default function GitHubProjects() {
                       </div>
 
                       {/* Updated */}
-                      <p className="flex items-center gap-1.5 font-mono text-dim text-[11px] mb-4">
-                        <Clock size={11} />
-                        Updated{' '}
-                        {timeAgo(repo.pushed_at)}
-                      </p>
+                     
 
                       {/* Description */}
                       <p className="text-dim text-sm leading-relaxed mb-4 flex-1 break-words min-w-0">
