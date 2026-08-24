@@ -189,14 +189,15 @@ export default function GitHubProjects() {
                       className="group flex flex-col h-full border border-line rounded-lg p-7 md:p-8 bg-panel/40 hover:border-signal/40 hover:bg-panel/70 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4 mb-1">
-                        <h3 className="font-display text-2xl font-semibold text-ink">{repo.name}</h3>
+                        <h3 className="font-display text-2xl font-semibold text-ink break-words">{repo.name}</h3>
                         <ExternalLink size={17} className="text-dim shrink-0 pt-1" />
                       </div>
                       <p className="flex items-center gap-1.5 font-mono text-dim text-[11px] mb-4">
                         <Clock size={11} /> Updated {timeAgo(repo.pushed_at)}
                       </p>
 
-                      <p className="text-dim text-sm leading-relaxed mb-4 flex-1">
+                    
+                      <p className="text-dim text-sm leading-relaxed mb-4 flex-1 break-words">
                         {details.desc || "No description available yet — check the repo directly."}
                       </p>
 
