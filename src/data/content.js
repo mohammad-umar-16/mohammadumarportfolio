@@ -65,7 +65,6 @@ export const PROJECTS = [
       "A production platform for a Gurgaon-based home healthcare business — public-facing service pages, a searchable medical equipment catalog, a block-based blog CMS, and a full admin panel with JWT auth, role-based access, and round-robin lead assignment.",
     stack: ["Next.js", "Tailwind CSS v4", "Supabase", "Prisma", "PostgreSQL"],
     live: "https://dmcare360frontend.vercel.app",
-    repo: "#",
   },
   {
     name: "FaceVitals",
@@ -88,10 +87,10 @@ export const PROJECTS = [
    {
     name: "IndieVents",
     tagline: "Multi-city India events discovery platform",
-    description: "A scraper-driven events platform aggregating listings across Delhi, Mumbai, Bangalore, Hyderabad, and Pune from sources like AllEvents.in, District, and Eventbrite India. Scheduled scraping runs every 6 hours via GitHub Actions, using Playwright for JS-rendered sources and Axios/Cheerio for static ones.",
+    description: "A scraper-driven events platform aggregating listings across Delhi, Mumbai, Bangalore, Hyderabad, and Pune from sources like AllEvents.in, District, Townscript and Eventbrite India. Scheduled scraping runs every 6 hours via GitHub Actions, using Playwright for JS-rendered sources and Axios/Cheerio for static ones.",
     stack: ["React", "Node.js", "Express", "MongoDB", "Playwright"],
-    live: "#",
-    repo: "#",
+    live: "https://indievents-in.vercel.app/",
+    repo: "https://github.com/mohammad-umar-16/india-events-platform",
   },
 ];
 
