@@ -85,6 +85,14 @@ export const PROJECTS = [
     live: "https://expense-tracker-ochre-ten-98.vercel.app",
     repo: "https://github.com/mohammad-umar-16/ExpenseTracker",
   },
+   {
+    name: "IndieVents",
+    tagline: "Multi-city India events discovery platform",
+    description: "A scraper-driven events platform aggregating listings across Delhi, Mumbai, Bangalore, Hyderabad, and Pune from sources like AllEvents.in, District, and Eventbrite India. Scheduled scraping runs every 6 hours via GitHub Actions, using Playwright for JS-rendered sources and Axios/Cheerio for static ones.",
+    stack: ["React", "Node.js", "Express", "MongoDB", "Playwright"],
+    live: "#",
+    repo: "#",
+  },
 ];
 
 export const PUBLICATIONS = [
