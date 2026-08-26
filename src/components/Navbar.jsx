@@ -26,7 +26,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-void/90 backdrop-blur-md border-b border-line' : 'bg-transparent'
+       
+        scrolled ? 'bg-void/95 border-b border-line' : 'bg-transparent'
       }`}
     >
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-6">
