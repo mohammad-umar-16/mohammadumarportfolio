@@ -2,7 +2,7 @@
 
 A personal developer portfolio built with React, Three.js, and Tailwind CSS. Showcases full-stack and applied ML projects through an interactive 3D hero, live-fetched GitHub repositories, published research, certifications, and work experience — all in a single-page, section-based layout with smooth-scroll navigation.
 
-**Live site:** [mohammadumarportfolio.netlify.app](https://mohammadumarportfolio.netlify.app)
+**Live site:** (https://mohammadumar.dev)
 
 ---
 
