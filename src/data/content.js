@@ -8,7 +8,7 @@ export const PROFILE = {
   github: "https://github.com/mohammad-umar-16",
   linkedin: "https://linkedin.com/in/mohammad-umar01",
   resumeUrl: "/resume.pdf",
-  photoUrl: "",
+  photoUrl: "/photo.jpg",
 };
 
 export const ABOUT = {

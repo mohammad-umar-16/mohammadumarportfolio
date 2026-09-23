@@ -9,14 +9,14 @@ import CommandDivider from './components/CommandDivider';
 import ScrollProgress from './components/ScrollProgress';
 import CustomCursor from './components/CustomCursor';
 import ParallaxGrid from './components/ParallaxGrid';
-import BootSequence from './components/BootSequence';
+// import BootSequence from './components/BootSequence';
 import CommandPalette from './components/CommandPalette';
 import ResumePreview from './components/ResumePreview';
 
 export default function App() {
   return (
     <>
-      <BootSequence />
+      {/* <BootSequence /> */}
       <div className="grain-overlay" aria-hidden="true" />
       <ScrollProgress />
       <CustomCursor />
