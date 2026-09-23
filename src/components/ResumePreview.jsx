@@ -64,8 +64,8 @@ export default function ResumePreview() {
           <span className="font-mono text-dim text-xs tracking-widest">RESUME</span>
           <div className="flex items-center gap-2">
             
-              <a href={PROFILE.resumeUrl}
-              download
+            <a  href={PROFILE.resumeUrl}
+              download="mohammadumar(sde).pdf"
               aria-label="Download resume"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-line text-ink hover:text-signal hover:border-signal/40 transition-colors font-mono text-xs"
             >

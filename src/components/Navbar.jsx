@@ -66,7 +66,7 @@ export default function Navbar() {
 
           
           <a  href={PROFILE.resumeUrl}
-            download
+            download="mohammadumar(sde).pdf"
             aria-label="Download resume"
             className="w-8 h-8 flex items-center justify-center rounded-full border border-line bg-panel/50 text-ink hover:text-signal hover:border-signal/40 transition-colors"
             title="Download Resume"
@@ -106,7 +106,7 @@ export default function Navbar() {
 
             
             <a  href={PROFILE.resumeUrl}
-              download
+              download="mohammadumar(sde).pdf"
               className="flex items-center gap-2 font-mono text-sm text-dim hover:text-signal transition-colors"
             >
               <Download size={15} /> Download Resume
