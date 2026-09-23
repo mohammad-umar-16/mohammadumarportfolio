@@ -1,4 +1,3 @@
-
 import { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sparkles } from '@react-three/drei';
@@ -18,7 +17,7 @@ function Bar({ length = 1.15, position, rotationZ, thickness = 0.16 }) {
   return (
     <mesh position={position} rotation={[0, 0, rotationZ]}>
       <boxGeometry args={[length, thickness, thickness]} />
-      <meshStandardMaterial color="#0A1815" emissive="#4ECDA4" emissiveIntensity={0.85} roughness={0.15} metalness={0.8} />
+      <meshStandardMaterial color="#0A1815" emissive="#22D3EE" emissiveIntensity={0.85} roughness={0.15} metalness={0.8} />
     </mesh>
   );
 }
@@ -38,7 +37,7 @@ function BarWire({ length = 1.15, position, rotationZ }) {
   return (
     <mesh position={position} rotation={[0, 0, rotationZ]}>
       <boxGeometry args={[length, 0.16, 0.16]} />
-      <meshBasicMaterial color="#4ECDA4" wireframe transparent opacity={0.15} />
+      <meshBasicMaterial color="#22D3EE" wireframe transparent opacity={0.15} />
     </mesh>
   );
 }
@@ -92,7 +91,7 @@ function CodeGlyph({ mouse }) {
   );
 }
 
-const iconMat = (color = "#4ECDA4", intensity = 0.7) => ({
+const iconMat = (color = "#22D3EE", intensity = 0.7) => ({
   color: "#0A1815", emissive: color, emissiveIntensity: intensity, roughness: 0.2, metalness: 0.7,
 });
 
@@ -120,16 +119,16 @@ function BrowserWindow({ position, orbit, spawnDelay }) {
     <group ref={ref}>
       <mesh>
         <boxGeometry args={[0.85, 0.6, 0.04]} />
-        <meshStandardMaterial {...iconMat("#4ECDA4", 0.5)} />
+        <meshStandardMaterial {...iconMat("#22D3EE", 0.5)} />
       </mesh>
       <mesh>
         <boxGeometry args={[0.9, 0.65, 0.02]} />
-        <meshBasicMaterial color="#4ECDA4" wireframe transparent opacity={0.25} />
+        <meshBasicMaterial color="#22D3EE" wireframe transparent opacity={0.25} />
       </mesh>
       {[-0.32, -0.24, -0.16].map((x, i) => (
         <mesh key={i} position={[x, 0.22, 0.03]}>
           <sphereGeometry args={[0.025, 8, 8]} />
-          <meshBasicMaterial color={i === 1 ? "#E8A33D" : "#4ECDA4"} />
+          <meshBasicMaterial color={i === 1 ? "#FFA733" : "#22D3EE"} />
         </mesh>
       ))}
     </group>
@@ -144,7 +143,7 @@ function DatabaseStack({ position, orbit, spawnDelay }) {
       {[0, 0.22, 0.44].map((y, i) => (
         <mesh key={i} position={[0, y, 0]}>
           <cylinderGeometry args={[0.4, 0.4, 0.12, 16]} />
-          <meshStandardMaterial {...iconMat(i === 1 ? "#E8A33D" : "#4ECDA4", 0.6)} />
+          <meshStandardMaterial {...iconMat(i === 1 ? "#FFA733" : "#22D3EE", 0.6)} />
         </mesh>
       ))}
     </group>
@@ -160,12 +159,12 @@ function GitBranch({ position, orbit, spawnDelay }) {
       {nodes.map((p, i) => (
         <mesh key={i} position={p}>
           <sphereGeometry args={[0.08, 10, 10]} />
-          <meshStandardMaterial {...iconMat(i === 0 ? "#E8A33D" : "#4ECDA4", 0.7)} />
+          <meshStandardMaterial {...iconMat(i === 0 ? "#FFA733" : "#22D3EE", 0.7)} />
         </mesh>
       ))}
-      <mesh position={[0, -0.15, 0]}><cylinderGeometry args={[0.012, 0.012, 0.3, 6]} /><meshBasicMaterial color="#4ECDA4" transparent opacity={0.4} /></mesh>
-      <mesh position={[0.14, 0.15, 0]} rotation={[0, 0, -0.9]}><cylinderGeometry args={[0.012, 0.012, 0.34, 6]} /><meshBasicMaterial color="#4ECDA4" transparent opacity={0.4} /></mesh>
-      <mesh position={[-0.14, 0.15, 0]} rotation={[0, 0, 0.9]}><cylinderGeometry args={[0.012, 0.012, 0.34, 6]} /><meshBasicMaterial color="#4ECDA4" transparent opacity={0.4} /></mesh>
+      <mesh position={[0, -0.15, 0]}><cylinderGeometry args={[0.012, 0.012, 0.3, 6]} /><meshBasicMaterial color="#22D3EE" transparent opacity={0.4} /></mesh>
+      <mesh position={[0.14, 0.15, 0]} rotation={[0, 0, -0.9]}><cylinderGeometry args={[0.012, 0.012, 0.34, 6]} /><meshBasicMaterial color="#22D3EE" transparent opacity={0.4} /></mesh>
+      <mesh position={[-0.14, 0.15, 0]} rotation={[0, 0, 0.9]}><cylinderGeometry args={[0.012, 0.012, 0.34, 6]} /><meshBasicMaterial color="#22D3EE" transparent opacity={0.4} /></mesh>
     </group>
   );
 }
@@ -183,19 +182,19 @@ function TerminalIcon({ position, orbit, spawnDelay }) {
     <group ref={ref}>
       <mesh>
         <boxGeometry args={[0.7, 0.5, 0.04]} />
-        <meshStandardMaterial {...iconMat("#4ECDA4", 0.45)} />
+        <meshStandardMaterial {...iconMat("#22D3EE", 0.45)} />
       </mesh>
       <mesh position={[-0.2, 0.02, 0.03]} rotation={[0, 0, -0.3]}>
         <boxGeometry args={[0.14, 0.03, 0.01]} />
-        <meshBasicMaterial color="#4ECDA4" />
+        <meshBasicMaterial color="#22D3EE" />
       </mesh>
       <mesh position={[-0.2, -0.06, 0.03]} rotation={[0, 0, 0.3]}>
         <boxGeometry args={[0.14, 0.03, 0.01]} />
-        <meshBasicMaterial color="#4ECDA4" />
+        <meshBasicMaterial color="#22D3EE" />
       </mesh>
       <mesh ref={cursorRef} position={[0.05, -0.02, 0.03]}>
         <boxGeometry args={[0.1, 0.06, 0.01]} />
-        <meshBasicMaterial color="#E8A33D" transparent opacity={0.8} />
+        <meshBasicMaterial color="#FFA733" transparent opacity={0.8} />
       </mesh>
     </group>
   );
@@ -216,12 +215,12 @@ function OrbitingShape({ radius, speed, offset, geometry, spawnDelay }) {
   return (
     <mesh ref={ref}>
       {geometry}
-      <meshBasicMaterial color="#E8A33D" wireframe transparent opacity={0.55} />
+      <meshBasicMaterial color="#FFA733" wireframe transparent opacity={0.55} />
     </mesh>
   );
 }
 
-function ConnectionLine({ from, position, orbit, spawnDelay, pulseColor = "#E8A33D" }) {
+function ConnectionLine({ from, position, orbit, spawnDelay, pulseColor = "#FFA733" }) {
   const lineRef = useRef();
   const dotRef = useRef();
   const geometry = useMemo(() => {
@@ -264,7 +263,7 @@ function ConnectionLine({ from, position, orbit, spawnDelay, pulseColor = "#E8A3
   return (
     <>
       <line ref={lineRef} geometry={geometry}>
-        <lineBasicMaterial color="#4ECDA4" transparent opacity={0} />
+        <lineBasicMaterial color="#22D3EE" transparent opacity={0} />
       </line>
       <mesh ref={dotRef}>
         <sphereGeometry args={[0.035, 8, 8]} />
@@ -278,9 +277,9 @@ function Scene({ mouse }) {
   return (
     <>
       <ambientLight intensity={0.4} />
-      <pointLight position={[6, 4, 6]} intensity={40} color="#4ECDA4" />
-      <pointLight position={[-6, -3, -4]} intensity={20} color="#E8A33D" />
-      <pointLight position={[0, 0, 6]} intensity={12} color="#4ECDA4" />
+      <pointLight position={[6, 4, 6]} intensity={40} color="#22D3EE" />
+      <pointLight position={[-6, -3, -4]} intensity={20} color="#FFA733" />
+      <pointLight position={[0, 0, 6]} intensity={12} color="#22D3EE" />
       <fog attach="fog" args={['#0B0F0E', 8, 18]} />
 
       <Float speed={1.4} rotationIntensity={0.1} floatIntensity={0.4}>
@@ -294,11 +293,11 @@ function Scene({ mouse }) {
       <GitBranch position={[-1.6, 1.6, -1]} orbit={{ radius: 0.8, speed: 0.35, offset: 3.4 }} spawnDelay={0.6} />
       <TerminalIcon position={[1.0, -1.9, -1]} orbit={{ radius: 1.0, speed: 0.28, offset: 5.1 }} spawnDelay={0.8} />
       <ConnectionLine from={[1.2, 0, 0]} position={[1.2, 1.8, -1]} orbit={{ radius: 1.1, speed: 0.25, offset: 0 }} spawnDelay={0.9} />
-      <ConnectionLine from={[1.2, 0, 0]} position={[3.6, -0.4, -1.5]} orbit={{ radius: 0.9, speed: 0.3, offset: 1.8 }} spawnDelay={1.1} pulseColor="#4ECDA4" />
+      <ConnectionLine from={[1.2, 0, 0]} position={[3.6, -0.4, -1.5]} orbit={{ radius: 0.9, speed: 0.3, offset: 1.8 }} spawnDelay={1.1} pulseColor="#22D3EE" />
       <ConnectionLine from={[1.2, 0, 0]} position={[-1.6, 1.6, -1]} orbit={{ radius: 0.8, speed: 0.35, offset: 3.4 }} spawnDelay={1.3} />
-      <ConnectionLine from={[1.2, 0, 0]} position={[1.0, -1.9, -1]} orbit={{ radius: 1.0, speed: 0.28, offset: 5.1 }} spawnDelay={1.5} pulseColor="#4ECDA4" />
-      
-      <Sparkles count={60} scale={9} size={1.5} speed={0.25} color="#4ECDA4" opacity={0.4} />
+      <ConnectionLine from={[1.2, 0, 0]} position={[1.0, -1.9, -1]} orbit={{ radius: 1.0, speed: 0.28, offset: 5.1 }} spawnDelay={1.5} pulseColor="#22D3EE" />
+
+      <Sparkles count={60} scale={9} size={1.5} speed={0.25} color="#22D3EE" opacity={0.4} />
 
       <EffectComposer>
         <Bloom intensity={1.4} luminanceThreshold={0.08} luminanceSmoothing={0.85} mipmapBlur />

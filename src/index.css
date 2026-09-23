@@ -8,17 +8,34 @@
   body {
     @apply bg-void text-ink font-body antialiased;
     background-image:
-      linear-gradient(rgba(78,205,164,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(78,205,164,0.025) 1px, transparent 1px);
+      linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
     background-size: 48px 48px;
+    background-position: var(--grid-x, 0px) var(--grid-y, 0px);
   }
-  ::selection { background: #4ECDA4; color: #0B0F0E; }
+  ::selection { background: #22D3EE; color: #0B0F0E; }
+  :focus-visible {
+    outline: 2px solid #22D3EE;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .custom-cursor-active, .custom-cursor-active * { cursor: none !important; }
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
 }
 
 @layer utilities {
-  .glow-text { text-shadow: 0 0 24px rgba(78,205,164,0.35); }
+  .glow-text { text-shadow: 0 0 24px rgba(34,211,238,0.35); }
   .section-pad { @apply px-6 md:px-12 lg:px-20 py-24 md:py-32; }
+
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }

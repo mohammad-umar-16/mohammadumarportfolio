@@ -4,17 +4,17 @@ export const PROFILE = {
   tagline: "Full-stack developer building production web apps, real-time systems, and ML-driven tools.",
   location: "Delhi, India",
   email: "mohammadumar16.mu@gmail.com",
-  phone: "+91 8899721612",
+  phone: "+91 8376006470",
   github: "https://github.com/mohammad-umar-16",
   linkedin: "https://linkedin.com/in/mohammad-umar01",
+  resumeUrl: "/resume.pdf",
+  photoUrl: "",
 };
-
-
 
 export const ABOUT = {
   paragraphs: [
-    "I'm a full-stack developer based in Delhi, India. I graduated in 2025 with a B.Tech in Computer Science (Data Science) from IPEC, and most recently worked as a Software Engineer at PEER Networks, where I built and shipped software solutions end to end.",
-    "I care about building things that actually ship, not just prototypes — that means paying as much attention to auth security, database reliability, and graceful fallbacks as to the feature itself. I'm currently looking for my next role in Software Engineering, ML/Data Science, or Frontend development.",
+    "I'm a Software Engineer based in Delhi, India, who has designed, built, and shipped production full-stack systems — React/Next.js frontends, Node.js/FastAPI backends, and AWS-deployed infrastructure. I graduated in 2025 with a B.Tech in Computer Science (Data Science) from IPEC, and most recently worked as a Software Engineer at PEER Networks, where I delivered a live client platform end to end.",
+    "I also build ML-driven applications integrating computer vision and Generative AI — from real-time vital-sign estimation to multilingual video calling. I care about building things that actually ship, not just prototypes, and I'm currently looking for my next role in Software Engineering, ML/Data Science, or Frontend development.",
   ],
   focusAreas: ["Full-Stack Web Development", "Applied Machine Learning", "Real-Time Systems", "Health Tech"],
 };
@@ -25,14 +25,13 @@ export const EXPERIENCE = [
     org: "PEER Networks Private Limited",
     period: "1 Jul 2025 — 31 Jul 2026",
     points: [
-      "Developed and maintained client-facing and internal web applications using React.js, Next.js, Node.js, and Express.js, translating business requirements into functional features.",
-      "Built reusable React components and REST APIs, integrating frontend applications with backend services and implementing validation, authentication, and error handling.",
-      "Worked with PostgreSQL and MongoDB for database design, CRUD operations, and integration with backend application workflows.",
-      "Contributed to testing, debugging, deployment, and performance improvements, resolving application issues and supporting ongoing maintenance of delivered solutions.",
+      "Developed and maintained 3+ client-facing and internal web applications using React.js, Next.js, Node.js, and Express.js, delivering features based on evolving business requirements.",
+      "Built 20+ REST API endpoints and reusable React components, integrating frontend applications with backend services and implementing authentication, validation, and error handling.",
+      "Worked across two database systems, PostgreSQL and MongoDB, supporting schema design, CRUD workflows, testing, and debugging.",
+      "Handled deployment on AWS (EC2, S3) and ongoing application performance improvements.",
     ],
   },
 ];
-
 
 export const EDUCATION = [
   {
@@ -47,33 +46,47 @@ export const EDUCATION = [
     degree: "Class XII",
     period: "2020 — 2021",
   },
-
 ];
 
 export const ACHIEVEMENTS = [
   "Successfully qualified GATE 2026 in Computer Science Information Technology (CSIT)",
   "Solved 100+ LeetCode problems, strengthening data structures and algorithms fundamentals.",
   "Member of the CSE Club at IPEC.",
-
 ];
 
 export const PROJECTS = [
+  // every project below takes a `screenshots: [...]` array — add 1+ paths (e.g.
+  // "/screenshots/dmcare360-1.png") to show a gallery card with a lightbox; Realm
+  // falls back to the architecture diagram automatically while its array is empty.
+  {
+    name: "Realm",
+    tagline: "Real-time video calling with live translation",
+    description:
+      "A solo-built video calling and messaging platform extending my published speech-translation research (IJSREM 2025) into production. Live speech-to-text captioning and voice translation across 7 languages, a WebRTC signaling layer with STUN/TURN failover and automatic reconnection, and a multi-provider translation pipeline (DeepL, Sarvam AI, Gemini) with automatic fallback and a persistent Postgres cache to control API cost. JWT/httpOnly-cookie auth with email verification, and real-time messaging via per-user Socket.io rooms.",
+    stack: ["React", "TypeScript", "Node.js", "Express", "Socket.io", "WebRTC", "PostgreSQL (Neon)"],
+    live: "https://realm-vchat.vercel.app",
+    repo: "https://github.com/mohammad-umar-16/realm",
+    featured: true,
+    screenshots: [],
+  },
   {
     name: "DMcare360",
-    tagline: "Full-stack home healthcare platform",
+    tagline: "Live client project — full-stack home healthcare platform",
     description:
-      "A production platform for a Gurgaon-based home healthcare business — public-facing service pages, a searchable medical equipment catalog, a block-based blog CMS, and a full admin panel with JWT auth, role-based access, and round-robin lead assignment.",
+      "A production platform for a Gurgaon-based home healthcare business (DeckMount Electronics) — a full service catalog with Fuse.js-powered search, a block-based blog CMS with Supabase Storage image uploads, and an AI-powered chat assistant (Gemini API) that helps leads get instant answers about specific services. Includes a secure CRM admin with JWT + bcrypt auth, role-based access control, automated round-robin lead assignment via a Supabase cron job, and SEO-friendly dynamic meta tags across all service pages.",
     stack: ["Next.js", "Tailwind CSS v4", "Supabase", "Prisma", "PostgreSQL"],
-    live: "https://dmcare360frontend.vercel.app",
+    live: "https://dmcare360.com",
+    screenshots: [],
   },
   {
     name: "FaceVitals",
     tagline: "Browser-based vital signs estimation",
     description:
-      "Estimates heart rate, HRV, blood pressure, and SpO2 from a 30-second face video using remote photoplethysmography (rPPG). Includes CHROM signal-extraction fixes, multi-ROI SNR-weighted fusion, and a from-scratch BP regression refit validated against real cuff measurements.",
-    stack: ["React", "FastAPI", "Python", "Signal Processing", "PyTorch"],
+      "Estimates heart rate, HRV, blood pressure, and SpO2 from live video, combining computer vision (478-point MediaPipe landmarking) with signal processing (CHROM, Welch PSD) and deep learning (FacePhys.rlap, a two-phase ResNet1D) on a FastAPI backend. Diagnosed and fixed a core signal-extraction bug, then validated blood pressure estimates against 8,299 real-world cuff measurements, improving reliability with ITA-based skin-tone correction and multi-ROI signal fusion.",
+    stack: ["React", "FastAPI", "Python", "PyTorch", "MediaPipe", "Signal Processing"],
     live: "https://facevitals-tau.vercel.app/",
     repo: "https://github.com/mohammad-umar-16/facevitals",
+    screenshots: [],
   },
   {
     name: "Expense Tracker",
@@ -83,14 +96,16 @@ export const PROJECTS = [
     stack: ["React", "FastAPI", "PostgreSQL", "Gemini API"],
     live: "https://expense-tracker-ochre-ten-98.vercel.app",
     repo: "https://github.com/mohammad-umar-16/ExpenseTracker",
+    screenshots: [],
   },
-   {
+  {
     name: "IndieVents",
     tagline: "Multi-city India events discovery platform",
     description: "A scraper-driven events platform aggregating listings across Delhi, Mumbai, Bangalore, Hyderabad, and Pune from sources like AllEvents.in, District, Townscript and Eventbrite India. Scheduled scraping runs every 6 hours via GitHub Actions, using Playwright for JS-rendered sources and Axios/Cheerio for static ones.",
     stack: ["React", "Node.js", "Express", "MongoDB", "Playwright"],
     live: "https://indievents-in.vercel.app/",
     repo: "https://github.com/mohammad-umar-16/india-events-platform",
+    screenshots: [],
   },
 ];
 
@@ -103,7 +118,7 @@ export const PUBLICATIONS = [
     status: "Published",
     link: "https://ijsrem.com/download/speech-translation-technology-in-chatting-and-video-conference-platform",
   },
-{
+  {
     title: "Real Time text and video Communication System with Integrated Speech Translation",
     venue: "2025 7th  International Conference on Computing, Communication and Automation (ICCCA",
     authors: "Prateek Maurya, Mohammad Umar, Pratik Raj",
@@ -112,37 +127,20 @@ export const PUBLICATIONS = [
 ];
 
 export const CERTIFICATIONS = [
-  {
-    name: "Oracle Certified Foundations Associate",
-    issuer: "Oracle University — Oracle Data Platform 2025",
-    date: "October 2025",
-  },
-  {
-    name: "Generative AI Foundations Certificate Program",
-    issuer: "upGrad × Microsoft",
-    date: "October 2025",
-  },
-  {
-    name: "Amazon Junior Software Developer",
-    issuer: "Coursera",
-    date: "2025",
-  },
-  {
-    name: "Introduction to Cybersecurity",
-    issuer: "Cisco",
-    date: "2023",
-  },
-  {
-    name: "Cybersecurity Essentials",
-    issuer: "Cisco",
-    date: "2023",
-  },
+  { name: "Oracle Certified Foundations Associate", issuer: "Oracle University — Oracle Data Platform 2025", date: "October 2025", fileSrc: "/certificates/oracle-data-platform.jpg" },
+  { name: "Oracle Agentic AI Foundations Associate", issuer: "Oracle (1Z0-1157-26)", date: "August 2026", fileSrc: "/certificates/oracle-agentic-ai.jpg" },
+  { name: "Generative AI Foundations Certificate Program", issuer: "upGrad × Microsoft", date: "October 2025", fileSrc: "/certificates/genai-foundations.jpg" },
+  { name: "Amazon Junior Software Developer", issuer: "Coursera", date: "2025", fileSrc: "/certificates/amazon-junior-swe.jpg" },
+  { name: "Human Research — Data or Specimens Only Research (Basic Course)", issuer: "CITI Program, MIT Affiliates", date: "July 2026 · valid until July 2029", fileSrc: "/certificates/citi-human-research.jpg" },
+  { name: "Technical SEO and AI Search Essentials", issuer: "Semrush Academy", date: "valid until August 2027", fileSrc: "/certificates/semrush-seo.jpg" },
+  { name: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "June 2023", fileSrc: "/certificates/cisco-cybersecurity-intro.jpg" },
+  { name: "Cybersecurity Essentials", issuer: "Cisco", date: "2023", fileSrc: "/certificates/cisco-cybersecurity-essentials.jpg" },
 ];
 
 export const SKILLS = {
-  "Languages": ["Python", "JavaScript / TypeScript", "SQL"],
-  "Frontend": ["React", "Next.js", "Tailwind CSS", "Vite"],
-  "Backend": ["FastAPI", "Node.js", "REST APIs", "JWT Auth"],
-  "Data & ML": ["PyTorch", "Signal Processing", "pandas", "Prisma / SQLAlchemy"],
-  "Infra": ["PostgreSQL", "Supabase", "Neon", "Vercel", "Render", "Git"],
+  "Languages": ["Python", "JavaScript", "TypeScript", "SQL"],
+  "Frontend": ["React", "Figma", "Next.js", "Tailwind CSS", "Vite", "PyQt5", "HTML", "CSS"],
+  "Backend & Testing": ["FastAPI", "Node.js", "Express.js", "REST APIs", "JWT Authentication", "Prisma", "SQLAlchemy", "Playwright", "Socket.io", "WebRTC"],
+  "Databases & Cloud": ["PostgreSQL", "MongoDB", "Supabase", "Neon", "AWS (EC2, S3)", "Vercel", "Render", "Git", "Docker"],
+  "AI & ML": ["PyTorch", "Signal Processing", "MediaPipe", "Pandas", "Gemini API", "LLM Integration"],
 };

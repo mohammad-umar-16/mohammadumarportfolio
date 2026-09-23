@@ -3,6 +3,7 @@
 A personal developer portfolio built with React, Three.js, and Tailwind CSS. Showcases full-stack and applied ML projects through an interactive 3D hero, live-fetched GitHub repositories, published research, certifications, and work experience — all in a single-page, section-based layout with smooth-scroll navigation.
 
 **Live site:** (https://mohammadumar.dev)
+**Live site:** [mohammadumar.dev](https://mohammadumar.dev)
 
 ---
 
@@ -35,26 +36,24 @@ A personal developer portfolio built with React, Three.js, and Tailwind CSS. Sho
 
 ## Project Structure
 
-```
 src/
 ├── components/
-│   ├── Navbar.jsx               # fixed nav with smooth-scroll links, mobile menu
-│   ├── Hero3D.jsx                # 3D scene: glyph, orbiting icons, connection lines
-│   ├── Hero3DErrorBoundary.jsx   # isolates 3D failures from the rest of the page
-│   ├── TerminalBlock.jsx         # animated typed-terminal identity block
-│   ├── CommandDivider.jsx        # section divider
-│   └── Reveal.jsx                # scroll-triggered fade/slide wrapper
+│ ├── Navbar.jsx # fixed nav with smooth-scroll links, mobile menu
+│ ├── Hero3D.jsx # 3D scene: glyph, orbiting icons, connection lines
+│ ├── Hero3DErrorBoundary.jsx # isolates 3D failures from the rest of the page
+│ ├── TerminalBlock.jsx # animated typed-terminal identity block
+│ ├── CommandDivider.jsx # section divider
+│ └── Reveal.jsx # scroll-triggered fade/slide wrapper
 ├── sections/
-│   ├── Hero.jsx
-│   ├── About.jsx
-│   ├── FeaturedWork.jsx
-│   ├── GitHubProjects.jsx        # live GitHub API integration
-│   ├── Publications.jsx
-│   └── Misc.jsx                  # Certifications, Education, Achievements, Experience, Skills, Contact
+│ ├── Hero.jsx
+│ ├── About.jsx
+│ ├── FeaturedWork.jsx
+│ ├── GitHubProjects.jsx # live GitHub API integration
+│ ├── Publications.jsx
+│ └── Misc.jsx # Certifications, Education, Achievements, Experience, Skills, Contact
 ├── data/
-│   └── content.js                # all editable content
+│ └── content.js # all editable content
 └── index.css
-```
 
 ---
 
@@ -71,19 +70,21 @@ Unauthenticated GitHub API requests are limited to 60/hour. To raise this to 5,0
 
 1. Create a GitHub Personal Access Token (classic) at Settings → Developer settings → Personal access tokens, with no scopes selected.
 2. Add to `.env`:
-   ```
-   VITE_GITHUB_TOKEN=ghp_your_token_here
-   ```
+
+VITE_GITHUB_TOKEN=ghp_your_token_here
+
 3. Restart the dev server.
 
 ---
 
 ## Deployment
 
-Deployed on Netlify:
+Deployed on Cloudflare (see `wrangler.toml`):
 - Build command: `npm run build`
-- Publish directory: `dist`
-- If using the GitHub token above, add `VITE_GITHUB_TOKEN` as an environment variable in Netlify's Site settings as well.
+- Static assets directory: `dist`
+- Deploy: `wrangler deploy`
+- If using the GitHub token above, add `VITE_GITHUB_TOKEN` as a Cloudflare environment variable / secret too.
+- The optional contact-form endpoint (`functions/api/contact.js`) needs `RESEND_API_KEY` set as a secret, and either a switch to `wrangler pages deploy` or a Worker `main` script that routes `/api/contact` to it — see comments in that file.
 
 ---
 

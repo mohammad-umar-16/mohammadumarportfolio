@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const LINES = [
   { prompt: "whoami", output: "mohammad-umar — software developer" },
@@ -6,13 +6,30 @@ const LINES = [
   { prompt: "status", output: "open to SWE / ML / Frontend roles" },
 ];
 
+// whitelisted commands for the interactive prompt once the intro finishes
+const COMMANDS = {
+  help: "available: whoami, projects, contact, resume, sudo, clear",
+  whoami: "mohammad-umar — software developer, Delhi",
+  projects: "see Featured Work & GitHub sections below ↓",
+  contact: "mohammadumar16.mu@gmail.com",
+  resume: "opening resume...",
+  sudo: "nice try — you already have full access to this portfolio",
+};
+
 export default function TerminalBlock() {
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [showOutput, setShowOutput] = useState([false, false, false]);
+  const [introDone, setIntroDone] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [input, setInput] = useState('');
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (lineIndex >= LINES.length) return;
+    if (lineIndex >= LINES.length) {
+      setIntroDone(true);
+      return;
+    }
     const current = LINES[lineIndex].prompt;
 
     if (charIndex < current.length) {
@@ -34,11 +51,28 @@ export default function TerminalBlock() {
     }
   }, [charIndex, lineIndex]);
 
+  const runCommand = (raw) => {
+    const cmd = raw.trim().toLowerCase();
+    if (!cmd) return;
+    if (cmd === 'clear') {
+      setHistory([]);
+      return;
+    }
+    if (cmd === 'resume') {
+      window.open('/resume.pdf', '_blank', 'noreferrer');
+    }
+    const output = COMMANDS[cmd] || `command not found: ${cmd} — try "help"`;
+    setHistory(h => [...h, { cmd: raw, output }]);
+  };
+
   return (
-    <div className="font-mono text-xs md:text-sm border border-line rounded-lg bg-panel/60 backdrop-blur-sm p-5 max-w-md w-full">
+    <div
+      className="font-mono text-xs md:text-sm border border-line rounded-lg bg-panel/60 backdrop-blur-sm p-5 max-w-md w-full cursor-text"
+      onClick={() => introDone && inputRef.current?.focus()}
+    >
       <div className="flex gap-1.5 mb-4">
-        <span className="w-2.5 h-2.5 rounded-full bg-[#E8A33D]/60" />
-        <span className="w-2.5 h-2.5 rounded-full bg-[#4ECDA4]/60" />
+        <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
+        <span className="w-2.5 h-2.5 rounded-full bg-signal/60" />
         <span className="w-2.5 h-2.5 rounded-full bg-dim/40" />
       </div>
       <div className="space-y-2.5">
@@ -59,8 +93,34 @@ export default function TerminalBlock() {
             </div>
           );
         })}
-        {lineIndex >= LINES.length && (
-          <span className="inline-block w-[7px] h-[13px] bg-signal animate-pulse align-middle" />
+
+        {introDone && history.map((h, i) => (
+          <div key={i}>
+            <div className="text-ink"><span className="text-signal">{'>'} </span>{h.cmd}</div>
+            <div className="text-dim pl-3.5 mt-1">{h.output}</div>
+          </div>
+        ))}
+
+        {introDone && (
+          <div className="flex items-center text-ink">
+            <span className="text-signal shrink-0">{'>'} </span>
+            <input
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  runCommand(input);
+                  setInput('');
+                }
+              }}
+              aria-label="Terminal command input — try 'help'"
+              placeholder="try 'help'"
+              autoComplete="off"
+              spellCheck={false}
+              className="flex-1 bg-transparent outline-none text-ink placeholder:text-dim/50 ml-0.5 min-w-0"
+            />
+          </div>
         )}
       </div>
     </div>

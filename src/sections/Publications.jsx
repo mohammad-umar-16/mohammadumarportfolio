@@ -1,14 +1,12 @@
 import Reveal from '../components/Reveal';
+import SectionHeader from '../components/SectionHeader';
 import { ExternalLink } from 'lucide-react';
 import { PUBLICATIONS } from '../data/content';
 
 export default function Publications() {
   return (
     <section id="publications" className="section-pad">
-      <Reveal>
-        <p className="font-mono text-signal text-xs tracking-[0.2em] mb-3">{'>'} PUBLICATIONS</p>
-        <h2 className="font-display text-3xl md:text-4xl font-semibold mb-12">Research</h2>
-      </Reveal>
+      <SectionHeader index={4} label="PUBLICATIONS" title="Research" variant="minimal" />
       <div className="flex flex-col divide-y divide-line border-y border-line">
         {PUBLICATIONS.map((pub, i) => (
           <Reveal key={pub.title} delay={i * 0.06}>
@@ -29,7 +27,7 @@ export default function Publications() {
                 {pub.authors && <p className="text-dim text-xs mt-2 italic">{pub.authors}</p>}
               </div>
               {pub.link && pub.link !== '#' && (
-                <a href={pub.link} className="text-dim hover:text-signal transition-colors shrink-0">
+                <a href={pub.link} target="_blank" rel="noreferrer" aria-label={`Open publication: ${pub.title}`} className="text-dim hover:text-signal transition-colors shrink-0">
                   <ExternalLink size={16} />
                 </a>
               )}

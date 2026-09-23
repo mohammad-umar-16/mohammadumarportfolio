@@ -1,9 +1,11 @@
+import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import Hero3D from '../components/Hero3D';
 import TerminalBlock from '../components/TerminalBlock';
 import { PROFILE } from '../data/content';
 import Hero3DErrorBoundary from '../components/Hero3DErrorBoundary';
+
+const Hero3D = lazy(() => import('../components/Hero3D'));
 
 const container = {
   hidden: {},
@@ -17,9 +19,12 @@ const item = {
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-96">
-      <Hero3DErrorBoundary><Hero3D /></Hero3DErrorBoundary>
+      <Hero3DErrorBoundary>
+        <Suspense fallback={null}>
+          <Hero3D />
+        </Suspense>
+      </Hero3DErrorBoundary>
       <div className="absolute inset-0 bg-gradient-to-b from-void/20 via-void/50 to-void pointer-events-none" />
-
 
       <motion.div
         variants={container}
