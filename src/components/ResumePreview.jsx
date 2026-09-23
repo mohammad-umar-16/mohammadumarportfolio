@@ -8,7 +8,16 @@ export default function ResumePreview() {
   const dialogRef = useRef(null);
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = () => {
+      // mobile browsers render PDFs inside an iframe unreliably (often blank) —
+      // open directly in a new tab there instead, where the native viewer works
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (isMobile) {
+        window.open(PROFILE.resumeUrl, '_blank', 'noreferrer');
+        return;
+      }
+      setOpen(true);
+    };
     window.addEventListener('open-resume-preview', onOpen);
     return () => window.removeEventListener('open-resume-preview', onOpen);
   }, []);

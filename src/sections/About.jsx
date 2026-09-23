@@ -20,17 +20,11 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="border border-line rounded-lg p-6 bg-panel/40 font-mono text-xs">
-            <div className="flex gap-1.5 mb-4">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-signal/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-dim/40" />
-            </div>
+          <div className="border border-line rounded-lg p-6 bg-panel/40 font-mono text-xs h-full flex flex-col">
             {/* Drop a headshot at /public/photo.jpg and set PROFILE.photoUrl in content.js to show it here.
                 Duotone-cyan filter keeps it on-brand instead of a plain color photo. */}
-           
             {PROFILE.photoUrl && (
-              <div className="mb-5 w-28 h-28 rounded-md border border-line overflow-hidden">
+              <div className="mb-5 w-44 h-44 mx-auto rounded-md border border-line overflow-hidden">
                 <img
                   src={PROFILE.photoUrl}
                   alt={PROFILE.name}
@@ -39,7 +33,7 @@ export default function About() {
                 />
               </div>
             )}
-            <div className="space-y-3 text-dim">
+            <div className="space-y-3 text-dim mt-auto">
               <div className="flex items-baseline gap-2">
                 <span className="text-dim/50 w-16 shrink-0">Location</span>
                 <span>{PROFILE.location}</span>

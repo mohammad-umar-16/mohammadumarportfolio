@@ -18,7 +18,7 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-96">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden pt-28 sm:pt-40 md:pt-64 lg:pt-96">
       <Hero3DErrorBoundary>
         <Suspense fallback={null}>
           <Hero3D />
