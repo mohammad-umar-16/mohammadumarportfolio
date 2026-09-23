@@ -36,7 +36,11 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-7">
           {LINKS.map(l => (
-            <a key={l.href} href={l.href} className="font-mono text-sm text-dim hover:text-signal transition-colors tracking-wide">
+            
+            <a  key={l.href}
+              href={l.href}
+              className="font-mono text-sm text-dim hover:text-signal transition-colors tracking-wide"
+            >
               {l.label}
             </a>
           ))}
@@ -52,15 +56,13 @@ export default function Navbar() {
             <Command size={12} /> K
           </button>
 
-          
-          <a  href={PROFILE.resumeUrl}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={() => window.dispatchEvent(new Event('open-resume-preview'))}
             aria-label="View resume"
             className="flex items-center gap-1.5 px-3 h-8 rounded-full border border-line bg-panel/50 text-ink hover:text-signal hover:border-signal/40 transition-colors font-mono text-xs"
           >
             <FileText size={13} /> View Resume
-          </a>
+          </button>
 
           
           <a  href={PROFILE.resumeUrl}
@@ -84,15 +86,29 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-void/95 backdrop-blur-md border-b border-line px-6 py-5 flex flex-col gap-4">
           {LINKS.map(l => (
-            <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="font-mono text-base text-dim hover:text-signal transition-colors">
+            
+            <a  key={l.href}
+              href={l.href}
+              onClick={() => setMobileOpen(false)}
+              className="font-mono text-base text-dim hover:text-signal transition-colors"
+            >
               {l.label}
             </a>
           ))}
+
           <div className="flex flex-col gap-2 pt-2 border-t border-line">
-            <a href={PROFILE.resumeUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 font-mono text-sm text-dim hover:text-signal transition-colors">
+            <button
+              onClick={() => { window.dispatchEvent(new Event('open-resume-preview')); setMobileOpen(false); }}
+              className="flex items-center gap-2 font-mono text-sm text-dim hover:text-signal transition-colors text-left"
+            >
               <FileText size={15} /> View Resume
-            </a>
-            <a href={PROFILE.resumeUrl} download className="flex items-center gap-2 font-mono text-sm text-dim hover:text-signal transition-colors">
+            </button>
+
+            
+            <a  href={PROFILE.resumeUrl}
+              download
+              className="flex items-center gap-2 font-mono text-sm text-dim hover:text-signal transition-colors"
+            >
               <Download size={15} /> Download Resume
             </a>
             <div className="flex gap-3 pt-2">

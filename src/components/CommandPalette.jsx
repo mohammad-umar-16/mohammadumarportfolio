@@ -26,7 +26,6 @@ export default function CommandPalette() {
     };
     document.addEventListener('keydown', onKey);
 
-    // allows other components (e.g. the navbar hint button) to open it too
     const onExternalOpen = () => setOpen(true);
     window.addEventListener('open-command-palette', onExternalOpen);
 
@@ -84,16 +83,28 @@ export default function CommandPalette() {
           </Command.Group>
 
           <Command.Group heading="Actions" className="text-dim text-[10px] tracking-widest px-3 py-1.5 mt-2">
-            <Command.Item onSelect={() => openLink(PROFILE.github)} className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal">
+            <Command.Item
+              onSelect={() => openLink(PROFILE.github)}
+              className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal"
+            >
               Open GitHub
             </Command.Item>
-            <Command.Item onSelect={() => openLink(PROFILE.linkedin)} className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal">
+            <Command.Item
+              onSelect={() => openLink(PROFILE.linkedin)}
+              className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal"
+            >
               Open LinkedIn
             </Command.Item>
-            <Command.Item onSelect={copyEmail} className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal">
+            <Command.Item
+              onSelect={copyEmail}
+              className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal"
+            >
               Copy email address
             </Command.Item>
-            <Command.Item onSelect={() => openLink(PROFILE.resumeUrl)} className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal">
+            <Command.Item
+              onSelect={() => { setOpen(false); window.dispatchEvent(new Event('open-resume-preview')); }}
+              className="px-3 py-2 rounded text-ink cursor-pointer aria-selected:bg-line/60 aria-selected:text-signal"
+            >
               View resume
             </Command.Item>
           </Command.Group>

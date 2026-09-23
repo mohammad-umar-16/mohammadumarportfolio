@@ -11,6 +11,7 @@ import CustomCursor from './components/CustomCursor';
 import ParallaxGrid from './components/ParallaxGrid';
 import BootSequence from './components/BootSequence';
 import CommandPalette from './components/CommandPalette';
+import ResumePreview from './components/ResumePreview';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <CustomCursor />
       <ParallaxGrid />
       <CommandPalette />
+      <ResumePreview />
       <main className="relative">
         <Navbar />
         <Hero />
