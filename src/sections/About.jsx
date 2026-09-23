@@ -28,8 +28,9 @@ export default function About() {
             </div>
             {/* Drop a headshot at /public/photo.jpg and set PROFILE.photoUrl in content.js to show it here.
                 Duotone-cyan filter keeps it on-brand instead of a plain color photo. */}
+           
             {PROFILE.photoUrl && (
-              <div className="mb-4 w-16 h-16 rounded-md border border-line overflow-hidden">
+              <div className="mb-5 w-28 h-28 rounded-md border border-line overflow-hidden">
                 <img
                   src={PROFILE.photoUrl}
                   alt={PROFILE.name}
