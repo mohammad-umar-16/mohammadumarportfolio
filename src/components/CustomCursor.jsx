@@ -46,9 +46,9 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   return (
-    <>
-      <div ref={dotRef} className="fixed top-0 left-0 w-[6px] h-[6px] rounded-full bg-signal z-[70] pointer-events-none" />
-      <div ref={ringRef} className="fixed top-0 left-0 w-7 h-7 rounded-full border border-signal/50 z-[70] pointer-events-none" />
+    <>   
+    <div ref={dotRef} className="fixed top-0 left-0 w-[6px] h-[6px] rounded-full bg-signal z-[150] pointer-events-none" />
+    <div ref={ringRef} className="fixed top-0 left-0 w-7 h-7 rounded-full border border-signal/50 z-[150] pointer-events-none" />
     </>
   );
 }
