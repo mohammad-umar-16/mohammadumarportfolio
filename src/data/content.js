@@ -8,6 +8,7 @@ export const PROFILE = {
   github: "https://github.com/mohammad-umar-16",
   linkedin: "https://linkedin.com/in/mohammad-umar01",
   resumeUrl: "/resume.pdf",
+  // set to "/photo.jpg" (dropped in /public) to show a headshot in the About card
   photoUrl: "/photo.jpg",
 };
 
@@ -55,9 +56,7 @@ export const ACHIEVEMENTS = [
 ];
 
 export const PROJECTS = [
-  // every project below takes a `screenshots: [...]` array — add 1+ paths (e.g.
-  // "/screenshots/dmcare360-1.png") to show a gallery card with a lightbox; Realm
-  // falls back to the architecture diagram automatically while its array is empty.
+ 
   {
     name: "Realm",
     tagline: "Real-time video calling with live translation",
@@ -67,7 +66,7 @@ export const PROJECTS = [
     live: "https://realm-vchat.vercel.app",
     repo: "https://github.com/mohammad-umar-16/realm",
     featured: true,
-    screenshots: [],
+    screenshots: ["/screenshots/realm1.webp", "/screenshots/realm2.webp", "/screenshots/realm3.webp", "/screenshots/realm4.webp", "/screenshots/realm5.webp", "/screenshots/realm6.webp", "/screenshots/realm7.webp"],
   },
   {
     name: "DMcare360",
@@ -76,7 +75,7 @@ export const PROJECTS = [
       "A production platform for a Gurgaon-based home healthcare business (DeckMount Electronics) — a full service catalog with Fuse.js-powered search, a block-based blog CMS with Supabase Storage image uploads, and an AI-powered chat assistant (Gemini API) that helps leads get instant answers about specific services. Includes a secure CRM admin with JWT + bcrypt auth, role-based access control, automated round-robin lead assignment via a Supabase cron job, and SEO-friendly dynamic meta tags across all service pages.",
     stack: ["Next.js", "Tailwind CSS v4", "Supabase", "Prisma", "PostgreSQL"],
     live: "https://dmcare360.com",
-    screenshots: [],
+    screenshots: ["/screenshots/dmcare1.webp", "/screenshots/dmcare2.webp", "/screenshots/dmcare3.webp", "/screenshots/dmcare4.webp", "/screenshots/dmcare5.webp", "/screenshots/dmcare6.webp"],
   },
   {
     name: "FaceVitals",
@@ -86,7 +85,7 @@ export const PROJECTS = [
     stack: ["React", "FastAPI", "Python", "PyTorch", "MediaPipe", "Signal Processing"],
     live: "https://facevitals-tau.vercel.app/",
     repo: "https://github.com/mohammad-umar-16/facevitals",
-    screenshots: [],
+    screenshots: ["/screenshots/facevital1.webp", "/screenshots/facevital2.webp", "/screenshots/facevital3.webp", "/screenshots/facevital4.webp", "/screenshots/facevital5.webp", "/screenshots/facevital6.webp"],
   },
   {
     name: "Expense Tracker",
@@ -96,7 +95,7 @@ export const PROJECTS = [
     stack: ["React", "FastAPI", "PostgreSQL", "Gemini API"],
     live: "https://expense-tracker-ochre-ten-98.vercel.app",
     repo: "https://github.com/mohammad-umar-16/ExpenseTracker",
-    screenshots: [],
+    screenshots: ["/screenshots/expensetracker1.webp", "/screenshots/expensetracker2.webp", "/screenshots/expensetracker3.webp", "/screenshots/expensetracker4.webp", "/screenshots/expensetracker5.webp", "/screenshots/expensetracker6.webp", "/screenshots/expensetracker7.webp", "/screenshots/expensetracker8.webp", "/screenshots/expensetracker9.webp", "/screenshots/expensetracker10.webp", "/screenshots/expensetracker11.webp"],
   },
   {
     name: "IndieVents",
@@ -105,7 +104,7 @@ export const PROJECTS = [
     stack: ["React", "Node.js", "Express", "MongoDB", "Playwright"],
     live: "https://indievents-in.vercel.app/",
     repo: "https://github.com/mohammad-umar-16/india-events-platform",
-    screenshots: [],
+    screenshots: ["/screenshots/indievent1.webp", "/screenshots/indievent2.webp"],
   },
 ];
 
@@ -127,14 +126,54 @@ export const PUBLICATIONS = [
 ];
 
 export const CERTIFICATIONS = [
-  { name: "Oracle Certified Foundations Associate", issuer: "Oracle University — Oracle Data Platform 2025", date: "October 2025", fileSrc: "/certificates/oracle-data-platform.jpg" },
-  { name: "Oracle Agentic AI Foundations Associate", issuer: "Oracle (1Z0-1157-26)", date: "August 2026", fileSrc: "/certificates/oracle-agentic-ai.jpg" },
-  { name: "Generative AI Foundations Certificate Program", issuer: "upGrad × Microsoft", date: "October 2025", fileSrc: "/certificates/genai-foundations.jpg" },
-  { name: "Amazon Junior Software Developer", issuer: "Coursera", date: "2025", fileSrc: "/certificates/amazon-junior-swe.jpg" },
-  { name: "Human Research — Data or Specimens Only Research (Basic Course)", issuer: "CITI Program, MIT Affiliates", date: "July 2026 · valid until July 2029", fileSrc: "/certificates/citi-human-research.jpg" },
-  { name: "Technical SEO and AI Search Essentials", issuer: "Semrush Academy", date: "valid until August 2027", fileSrc: "/certificates/semrush-seo.jpg" },
-  { name: "Introduction to Cybersecurity", issuer: "Cisco Networking Academy", date: "June 2023", fileSrc: "/certificates/cisco-cybersecurity-intro.jpg" },
-  { name: "Cybersecurity Essentials", issuer: "Cisco", date: "2023", fileSrc: "/certificates/cisco-cybersecurity-essentials.jpg" },
+  {
+    name: "Oracle Certified Foundations Associate",
+    issuer: "Oracle University — Oracle Data Platform 2025",
+    date: "October 2025",
+    fileSrc: "/certificates/oracle-data-platform.jpg",
+  },
+  {
+    name: "Oracle Agentic AI Foundations Associate",
+    issuer: "Oracle (1Z0-1157-26)",
+    date: "August 2026",
+    fileSrc: "/certificates/oracle-agentic-ai.jpg",
+  },
+  {
+    name: "Generative AI Foundations Certificate Program",
+    issuer: "upGrad × Microsoft",
+    date: "October 2025",
+    fileSrc: "/certificates/genai-foundations.jpg",
+  },
+  {
+    name: "Amazon Junior Software Developer",
+    issuer: "Coursera",
+    date: "2025",
+    fileSrc: "/certificates/amazon-junior-swe.jpg",
+  },
+  {
+    name: "Human Research — Data or Specimens Only Research (Basic Course)",
+    issuer: "CITI Program, MIT Affiliates",
+    date: "July 2026 · valid until July 2029",
+    fileSrc: "/certificates/citi-human-research.jpg",
+  },
+  {
+    name: "Technical SEO and AI Search Essentials",
+    issuer: "Semrush Academy",
+    date: "valid until August 2027",
+    fileSrc: "/certificates/semrush-seo.jpg",
+  },
+  {
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    date: "June 2023",
+    fileSrc: "/certificates/cisco-cybersecurity-intro.jpg",
+  },
+  {
+    name: "Cybersecurity Essentials",
+    issuer: "Cisco",
+    date: "2023",
+    fileSrc: "/certificates/cisco-cybersecurity-essentials.jpg",
+  },
 ];
 
 export const SKILLS = {
