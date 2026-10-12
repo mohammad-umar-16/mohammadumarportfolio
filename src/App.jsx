@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -12,8 +13,11 @@ import ParallaxGrid from './components/ParallaxGrid';
 // import BootSequence from './components/BootSequence';
 import CommandPalette from './components/CommandPalette';
 import ResumePreview from './components/ResumePreview';
+import { trackVisit } from './lib/trackVisit'; // new: visit alert ping
 
 export default function App() {
+  useEffect(() => { trackVisit(); }, []); // runs once per page load
+
   return (
     <>
       {/* <BootSequence /> */}
