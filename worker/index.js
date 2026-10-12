@@ -1,9 +1,16 @@
+import { handleVisit } from './visit.js'; // new: visit-alert handler
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) { // ctx added so the visit email can send after responding
     const url = new URL(request.url);
 
     if (url.pathname === '/api/contact' && request.method === 'POST') {
       return handleContact(request, env);
+    }
+
+    // new: visit alert ping from the browser
+    if (url.pathname === '/api/visit' && request.method === 'POST') {
+      return handleVisit(request, env, ctx);
     }
 
     // everything else: serve the built static site as before
